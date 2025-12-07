@@ -1,0 +1,15 @@
+[Unit]
+Description=Plexamp
+After=network-online.target
+Requires=network-online.target
+
+[Service]
+Type=simple
+User=raspberry
+Group=raspberry
+WorkingDirectory=/home/raspberry/plexamp
+ExecStart=/usr/bin/node /home/raspberry/plexamp/js/index.js
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
